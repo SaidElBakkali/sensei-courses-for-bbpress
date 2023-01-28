@@ -1,0 +1,36 @@
+{
+    "name": "saidelbakkali/sensei-courses-for-bbpress",
+    "description": "Assing Sensei Courses to bbPress Forums.",
+    "type": "wordpress-plugin",
+    "keywords": [
+        "WordPress",
+        "Plugin",
+        "rtl"
+    ],
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Said El Bakkali",
+            "email": "contact@saidelbakkali.com",
+            "homepage": "https://saidelbakkali.com",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "vendor-dir": "includes/packages"
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sensei_Courses_For_BBPress\\": "includes/classes"
+        },
+        "files": []
+    },
+    "support": {
+        "issues": "https://github.com/SaidElBakkali/sensei-courses-for-bbpress/issues",
+        "source": "https://github.com/SaidElBakkali/sensei-courses-for-bbpress"
+    }
+}
