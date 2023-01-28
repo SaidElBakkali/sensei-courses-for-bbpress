@@ -89,11 +89,19 @@ class Sensei_Courses_For_BBPress {
 	 * @return bool
 	 */
 	public function user_can_view_forum( $retval, $forum_id, $user_id ) {
+
+		// It's getting the course ID from the forum ID.
 		$course_id = Helper::get_course_id( $forum_id );
 
-		// Check if the current user is not an admin.
-		if ( ! current_user_can( 'manage_options' ) && Helper::is_sensei_courses_active() ) {
-			// Check if the user is enrolled in the course.
+		// It's checking if the user is an admin. If they are, then they can view the forum.
+		if ( current_user_can( 'manage_options' ) ) {
+			return $retval;
+		}
+
+		// It's checking if the Sensei Courses plugin is active. If it is, then it will check if the user is enrolled in the course.
+		if ( Helper::is_sensei_courses_active() ) {
+
+			// It's checking if the user is enrolled in the course. If they are not, then they can't view the forum.
 			if ( ! Sensei()->course->can_access_course_content( $course_id, $user_id ) ) {
 				$retval = false;
 			}
